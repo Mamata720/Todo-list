@@ -1,0 +1,144 @@
+.App {
+    text-align: center;
+  }
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  .alert-danger{
+    display: none;
+  }
+  .alert-success{
+    display: none;
+  }
+  .mainContainer{ 
+    margin-top: 4rem;
+    width: 25rem;
+    box-shadow: 3px 6px 40px #000;
+    min-width: 450px;
+    min-height: 650px;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left: 28rem;
+  }
+  input{
+    
+    outline: none;
+    width: 270px;
+    padding: 8px;
+    margin-right: 25px;
+    font-size: 20px;
+    color: #ccc;
+    background-color: #000000;
+    border-radius: 10px;
+  }
+  .delete{
+  }
+  .edit{
+    margin-left: 3rem;
+    
+  }
+  
+  
+  
+  
+  .add_todo{
+    width: 80%;
+    margin-left: 8rem;
+
+  }
+body{
+    background: url("isto.jpg"); 
+      background-size:contain;
+      background-position:top;
+      background: cover; 
+      background-repeat: no-repeat; 
+      /* width: 100%; */
+      background-size: 100%;  
+  }
+  .btn-primary{
+  }
+  .button-delete,
+  .button-edit{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 28px;
+    border-radius: 50%;
+    
+    
+  }
+  .button-edit{
+    color: #e2d029;
+    margin-left: 13rem;
+  
+    
+  }
+  .button-delete{
+    color: lightseagreen;
+  }
+  .add_btn{
+    background-color: #f1af71;
+    cursor: pointer;
+    width: 70px;
+    padding: 15px 15px;
+    border-radius: 10px;
+    margin-left: 1rem;
+    
+  }
+  
+  .list-item{
+    display: flex;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  .list{
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 7px;
+  }
+
+  .todo {
+    cursor: pointer;
+  }
+  .strike {
+    text-decoration: line-through;
+  }
+  
+  
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } 
+   
