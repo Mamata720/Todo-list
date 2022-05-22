@@ -1,7 +1,4 @@
 
-
-
-
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Login from "./pages/Login";
@@ -44,25 +41,24 @@ const App = (props) => {
 
   return (
     <div>
-  
-   <BrowserRouter>
-      <div>
-        <Navbar user={user} />
-        <Routes>
-        <Route
-             path="/"
-             element={user ? <TodoList user={user} />:<Navigate to="/login" />  }
-           />
-            <Route
-             path="/Login"
-             element={user ? <Navigate to="/" /> : <Login />}
-           />
-        </Routes> 
-      </div>
 
-    </BrowserRouter>
-    <div>
-    </div>
+      <BrowserRouter>
+        <div>
+          <Navbar user={user} />
+          <Routes>
+            <Route
+              path="/"
+              element={user ? <TodoList user={user} /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/Login"
+              element={user ? <Navigate to="/" /> : <Login />}
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+      <div>
+      </div>
     </div>
   );
 };
@@ -74,7 +70,4 @@ export default App;
 
 
 
-{/* <Route
-             path="/"
-             element={user ? <TodoList user={user} />:<Navigate to="/login" />  }
-           /> */}
+

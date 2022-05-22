@@ -5,7 +5,7 @@ class TodoList extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            todo: "",
+            name: "",
             category: "",
             records: [],
             showAlert: false,
@@ -16,7 +16,9 @@ class TodoList extends React.Component{
             email:props.user._json.email
             
         };
+        this.addRecord = this.addRecord.bind(this);
     }
+    
     handleChange = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value,
@@ -28,12 +30,9 @@ class TodoList extends React.Component{
         this.fetchAllRecords();
     }
     addRecord = (event) => {
-            event.preventDefault()
-            console.log(event.target.name.value); //get value from input with name of firstName
-          
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        var body = JSON.stringify({ todo: this.state.name, location: this.state.location, email:this.state.email });
+        var body = JSON.stringify({ name: this.state.name, location: this.state.location, email:this.state.email });
         console.log(body)
         fetch("http://localhost:8000/api/create",{
             method: "POST",
@@ -44,7 +43,7 @@ class TodoList extends React.Component{
             .then((result) => {
                 console.log(result);
                 this.setState({
-                    todo: "",
+                    name: "",
                     location: "",
                     showAlert: true,
                     alertMsg: result.response,
@@ -69,7 +68,7 @@ class TodoList extends React.Component{
             .catch((error) => console.log("error", error));
     };
 
-    
+
     editRecord = (id) => {
         fetch("http://localhost:8000/api/view/" + id, {
             method: "GET",
@@ -130,13 +129,22 @@ class TodoList extends React.Component{
             .catch((error) => console.log("error", error));
     };
     render(props) {
+        
+        
+
+
         return (
             <div className="">
 
             <div className="mainContainer">
-                <input type="text" name="name" placeholder="Enter ToDo" onChange={this.handleChange} value={this.state.name}></input>
-                {/* <button className="add_btn" onClick={this.addRecord}>save</button> */}
-                {this.state.update === true ? < button className="add_btn" onClick={this.updateRecord}>update</button> : <button className="add_btn" onClick={this.addRecord}>save</button>}
+            {/* <input type="text" placeholder="Enter a new name" ref={(ref) => this.nameTextInput = ref} className="form-control"onChange={this.handleChange} value={this.state.name} />
+            <br />
+            <button type="button" className="btn btn-success" onClick={this.addRecord}>Add</button>
+            <br/>
+            <div>{names}</div>
+                             */}
+                <input type="text" name="name" placeholder="Enter ToDo" onChange={this.handleChange} value={this.state.name}></input> 
+                 {this.state.update === true ? < button className="add_btn" onClick={this.updateRecord}>+</button> : <button className="add_btn" onClick={this.addRecord}>save</button>}
 
             
 
@@ -153,11 +161,10 @@ class TodoList extends React.Component{
                     </div>
                 ) : null}
                 {this.state.records.map((record,index) => {
-
                     return (
                         <li className="list-item" key={index}>
 
-                            <div className="list" style={{textDecorationLine: 'line-through'}} >{record.todo}</div>
+                            <div className="list" style={{textDecorationLine: 'line-through'}} >{record.name}</div>
                             <div>
 
                                 <button className="button-edit"onClick={() => this.editRecord(record.id)}>
@@ -177,12 +184,4 @@ class TodoList extends React.Component{
         );
     }
 }
-
 export default TodoList;
-
-
-
-
-
-
-
